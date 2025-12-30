@@ -41,7 +41,7 @@ It does **not** use JavaScript or any external frameworks.
 
 ## How to Access the Frontend - Run Locally
 1. Download or clone the repository
-2. Open `Front.html` in any web browser
+2. Open `index.html` in any web browser
 3. Navigate using the menu links
 
 ---
