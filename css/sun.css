@@ -1,0 +1,257 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    background: rgba(20, 20, 20, 0.55);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    z-index: 10;
+}
+
+#company {
+    font-size: 18px;
+    font-weight: 600;
+    color: #e8ecff;
+    letter-spacing: 1px;
+}
+
+#navbar {
+    display: flex;
+    gap: 30px;
+}
+
+#navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    position: relative;
+    opacity: 0.85;
+}
+
+#navbar a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -6px;
+    background: #320b7ab2;
+    transition: width 0.3s ease;
+}
+
+#navbar a:hover {
+    opacity: 1;
+}
+
+#navbar a:hover::after {
+    width: 100%;
+}
+.nav-links a.active{
+    color: #8fbaff;
+    border-bottom: 2px solid #8fbaff;
+}
+.navbar a.active{
+    color: blueviolet;
+}
+
+
+/* Full page layout */
+.sun-page {
+    min-height: 100vh;
+    position: absolute;
+    left: -20px;
+    color: #fff;
+}
+
+/* Sun Background Image */
+.sun-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/sun.png'); /* Your sun image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+}
+
+/* Dark overlay for readability */
+.text-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.445); /* Dark overlay so text is readable */
+    z-index: -1;
+}
+
+/* Content container */
+.sun-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 30px 0;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    color: #ffd700;
+    text-shadow: 
+        0 0 20px rgba(255, 215, 0, 0.8),
+        0 0 40px rgba(255, 140, 0, 0.5);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: #ffb347;
+    opacity: 0.9;
+}
+
+/* Main content card */
+.sun-card {
+   
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid rgba(255, 140, 0, 0.3);
+    box-shadow: 0 0 40px rgba(255, 140, 0, 0.2);
+    backdrop-filter: blur(5px);
+    margin-bottom: 40px;
+    flex-grow: 1;
+}
+
+h2 {
+    color: #ffd700;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+p {
+    line-height: 1.7;
+    color: #e8ecff;
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* Sun facts grid */
+.sun-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.fact {
+    background: rgba(255, 140, 0, 0.1);
+    border: 1px solid rgba(255, 140, 0, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+#container{
+    position: absolute;
+    top:90px;
+}
+
+.fact:hover {
+    border-color: #ffd700;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.2);
+}
+
+.fact-title {
+    color: #ffb347;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.fact-value {
+    color: #ffd700;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    color: #ffb347;
+    font-size: 1rem;
+    border-top: 1px solid rgba(255, 140, 0, 0.2);
+    margin-top: auto; /* Pushes footer to bottom */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .sun-card {
+        padding: 25px 20px;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    p {
+        font-size: 1.1rem;
+    }
+    
+    .sun-facts {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .sun-content {
+        padding: 20px 15px;
+    }
+    
+    .sun-card {
+        padding: 20px 15px;
+    }
+}

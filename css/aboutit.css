@@ -1,0 +1,310 @@
+/* === BASIC RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* === BODY WITH SPACE BACKGROUND === */
+body {
+  min-height: 100vh;
+  color: #e8ecff;
+  background-color: #02040f;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+/* === ANIMATED STARS BACKGROUND === */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(2px 2px at 10% 20%, rgba(255,255,255,0.8) 50%, transparent 52%),
+    radial-gradient(1.5px 1.5px at 35% 70%, rgba(255,255,255,0.6) 50%, transparent 52%),
+    radial-gradient(1px 1px at 60% 40%, rgba(255,255,255,0.5) 50%, transparent 52%),
+    radial-gradient(2px 2px at 80% 15%, rgba(255,255,255,0.7) 50%, transparent 52%),
+    radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,0.4) 50%, transparent 52%);
+  background-size: 260px 260px;
+  animation: starsMove 45s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes starsMove {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-260px);
+  }
+}
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    background: rgba(20, 20, 20, 0.55);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    z-index: 10;
+}
+
+#company {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+#navbar {
+    display: flex;
+    gap: 30px;
+}
+
+#navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    position: relative;
+    opacity: 0.85;
+}
+
+#navbar a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -6px;
+    background: #320b7ab2;
+    transition: width 0.3s ease;
+}
+
+#navbar a:hover {
+    opacity: 1;
+}
+
+#navbar a:hover::after {
+    width: 100%;
+}
+.nav-links a.active{
+    color: #8fbaff;
+    border-bottom: 2px solid #8fbaff;
+}
+.navbar a.active{
+    color: blueviolet;
+}
+
+
+/* === CONTAINER === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* === HEADER === */
+.cosmic-header {
+  text-align: center;
+  padding: 50px 20px 30px;
+}
+
+.cosmic-header h1 {
+  font-size: 2.8rem;
+  letter-spacing: 3px;
+  text-shadow: 0 0 15px rgba(160, 200, 255, 0.7);
+  margin-bottom: 10px;
+  color: #a4c8ff;
+}
+
+.cosmic-line {
+  width: 170px;
+  height: 3px;
+  margin: 20px auto;
+  background: linear-gradient(90deg, transparent, rgba(170, 210, 255, 1), transparent);
+  animation: glowMove 3.5s ease-in-out infinite;
+}
+
+@keyframes glowMove {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #b0c8ff;
+  margin-top: 15px;
+}
+
+/* === PLANET GRID === */
+.planet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 30px 20px;
+}
+
+/* === PLANET CARDS === */
+.planet-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  border: 1px solid rgba(100, 150, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.planet-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(100, 150, 255, 0.2);
+  border-color: rgba(100, 150, 255, 0.5);
+}
+
+/* === PLANET IMAGES (COLORED CIRCLES) === */
+.planet-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  box-shadow: 0 0 20px rgba(130, 180, 255, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.planet-card:hover .planet-image {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(160, 210, 255, 0.6);
+}
+
+/* Planet Colors */
+.mercury { background: linear-gradient(45deg, #8B7355, #A9A9A9); }
+.venus { background: linear-gradient(45deg, #FFA500, #FFD700); }
+.earth { background: linear-gradient(45deg, #1E90FF, #00BFFF); }
+.mars { background: linear-gradient(45deg, #DC143C, #FF6347); }
+.jupiter { background: linear-gradient(45deg, #DEB887, #F4A460); }
+.saturn { 
+  background: linear-gradient(45deg, #F4A460, #D2B48C);
+  position: relative;
+}
+.saturn::after {
+  content: '';
+  position: absolute;
+  width: 160%;
+  height: 15px;
+  background: rgba(244, 164, 96, 0.3);
+  border-radius: 50%;
+  top: 50%;
+  left: -30%;
+  transform: rotate(15deg);
+}
+
+/* === CARD TEXT === */
+.planet-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #a4c8ff;
+}
+
+.planet-card .short {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #d0d9ff;
+}
+
+/* === FUN FACTS SECTION === */
+.fun-facts {
+  grid-column: 1 / -1;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 20px;
+  border: 1px solid rgba(100, 150, 255, 0.3);
+  text-align: center;
+}
+
+.fun-facts h2 {
+  font-size: 2rem;
+  color: #64ffda;
+  margin-bottom: 15px;
+}
+
+.fun-facts > p {
+  font-size: 1.2rem;
+  color: #b0c8ff;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+.facts-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.fact {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 20px;
+  width: 200px;
+  border: 1px solid rgba(100, 150, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.fact:hover {
+  transform: translateY(-5px);
+  border-color: #64ffda;
+  box-shadow: 0 5px 15px rgba(100, 255, 218, 0.2);
+}
+
+.fact-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.fact h3 {
+  color: #64ffda;
+  margin-bottom: 8px;
+  font-size: 1.3rem;
+}
+
+.fact p {
+  color: #d0d9ff;
+  font-size: 0.95rem;
+}
+
+
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+  .cosmic-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .planet-grid {
+    grid-template-columns: 1fr;
+    padding: 20px 10px;
+  }
+  
+  .facts-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .fact {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .planet-image {
+    width: 100px;
+    height: 100px;
+  }
+}
